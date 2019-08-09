@@ -25,8 +25,8 @@
      <div class="row">
      	@foreach ($produtos as $produto)
      	<div class="col-md-3">
-     		@if(file_exists("./img/produtos/".md5($produto->id).".jpg"))
-		<img src="{{url('img/produtos/'.md5($produto->id).'.jpg')}}" alt="Imagem Produto" class="img-fluid img-thumbnail">
+     		@if(file_exists("./img/produtos/".$produto->sku.".jpg"))
+		<img src="{{url('img/produtos/'.$produto->sku.'.jpg')}}" alt="Imagem Produto" class="img-fluid img-thumbnail">
 	@endif
      		<h4 class="text-center"><a href="{{URL::to('produtos')}}/{{$produto->id}}">{{$produto->titulo}}</a></h4>
                @if(Auth::check())
