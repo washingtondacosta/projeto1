@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\facades\Auth;
 use App\Produtos;
 
 class ProdutosController extends Controller
@@ -21,7 +22,11 @@ class ProdutosController extends Controller
 
     public function create(){
 
+        if(Auth::check()){
     	return view('produtos.create');
+        }else{
+            return redirect('login');
+        }
     }
 
     public function store(Request $request){
@@ -53,8 +58,13 @@ class ProdutosController extends Controller
 
       public function edit($id){
 
-    	$produto = Produtos::find($id);
-    	return view('produtos.edit',compact('produto', 'id'));
+        if(Auth::check()){
+            $produto = Produtos::find($id);
+        return view('produtos.edit',compact('produto', 'id'));
+        }else{
+           return redirect('login');
+        }
+
     }
 
       public function update(Request $request, $id){
