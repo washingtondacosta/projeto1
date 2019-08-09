@@ -4,8 +4,8 @@
      <h1>Produtos - {{$produto->titulo}}</h1>
      <div class="row">
 	<div class="col-md-6">
-		@if(file_exists("./img/produtos/".md5($produto->id).".jpg"))
-		<img src="{{url('img/produtos/'.md5($produto->id).'.jpg')}}" alt="Imagem Produto" class="img-fluid img-thumbnail">
+		@if(file_exists("./img/produtos/".$produto->sku.".jpg"))
+		<img src="{{url('img/produtos/'.$produto->sku.'.jpg')}}" alt="Imagem Produto" class="img-fluid img-thumbnail">
 	</div>
 	@endif
 	<div class="col-md-6">

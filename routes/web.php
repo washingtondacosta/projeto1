@@ -11,9 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+ //   return view('welcome');
+//});
+
+
+Route::get('/', 'ProdutosController@index');
 
 Route::get('/contato','ContatoController@index');
 Route::post('/contato/enviar', 'ContatoController@enviar');
